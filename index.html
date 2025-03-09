@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #696969;
+            line-height: 1.6;
+            background-color: #696969;
+        }
+
+        h1, h2 {
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        header {
+            background-color: #000000;
+            color: #696969;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #696969;
+            font-size: 1.2em;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .burger-menu i {
+            font-size: 2em;
+            color: #696969;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('assets/css/images/sunset.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #696969;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 200px;
+            margin-right: 20px;
+            opacity: 0.9;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #000000;
+            color: #696969;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            border: 1px solid #696969;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: #696969;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #000000;
+        }
+        .about-description {
+            padding: 40px 20px;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .about img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .about div {
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #000000;
+        }
+
+        .portfolio-description {
+            padding: 40px 20px;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .portfolio div {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .portfolio img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 40px 20px;
+            background-color: #000000;
+            text-align: center;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: #696969;
+            margin: 10px 0;
+            border: 1px solid #696969;
+            border-radius: 4px;
+        }
+
+        .contact input[type="submit"] {
+            max-width: 150px;
+            background-color: #000000;
+            color: #696969;
+            cursor: pointer;
+        }
+        .contact input[type="submit"]:hover {
+            background-color: #3d6d43;
+            color: #fff;
+        }
+
+        .contact input[type="button"] {
+            width: 150px;
+            background-color: #000000;
+            color: #696969;
+            cursor: pointer;
+        }
+        .contact input[type="button"]:hover {
+            background-color: #6e3e3e;
+            color: #fff;
+        }
+
+        /* Find Me On Section */
+        .fa-linkedin:hover {
+            color: #0077b5; /* LinkedIn */
+        }
+        .fa-github:hover {
+            color: #333; /* GitHub */
+        }
+        .fa-youtube:hover {
+            color: #FF0000; /* YouTube */
+        }
+        .fa-blog:hover {
+            color: #FF6700; /* Substack */
+        }
+        .fa-instagram:hover {
+            color: #ffffff; /* Instagram */
+        }
+        hr {
+		    border: 0;
+		    border-top: solid 1px #444;
+		    border-top-color: rgba(0, 0, 0, 0.35);
+		    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.1);
+		    height: 1px;
+		    margin: 3em 0;
+        }
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: #696969;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #000000;
+                position: absolute;
+                top: 60px;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .burger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background-color: #141414;
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                height: 250px;
+                text-align: left;
+                padding: 20px;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .about {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+            .portfolio {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+            .find-me-on {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#find-me-on">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Burger Menu -->
+    <div class="burger-menu" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="assets/css/images/jeSuis.jpg" alt="Portrait">
+            </div>
+            <div class="hero-text">
+                <h1>Hello there</h1>
+                <a href="#about" class="btn">Learn More About Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-description" class="about-description">
+        <hr />
+        <div>
+            <h3>These are the areas I could help you with</h3>
+        </div>
+        <hr />
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div>
+            <img src="assets/css/images/containers.jpg" alt="Skill 1">
+            <h3>Platform Engineering</h3>
+        </div>
+        <div>
+            <img src="assets/css/images/hunter.jpg" alt="Skill 2">
+            <h3>Quality Automation Engineering </h3>
+        </div>
+        <div>
+            <img src="assets/css/images/referee.jpg" alt="Skill 3">
+            <h3>Agile Processes for product delivery</h3>
+        </div>
+    </section>
+
+    <section id="portfolio-description" class="portfolio-description">
+        <hr />
+        <div>
+            <h3>This is what I've worked on recently</h3>
+        </div>
+        <hr />
+    </section>
+
+    <!-- Portfolio Section (3x2 Grid) -->
+    <section id="portfolio" class="portfolio">
+        <div>
+            <img src="assets/css/images/gears.jpg" alt="Portfolio 1">
+            <h3>Enterprise infrastruture</h3>
+            <p>Making production grade secure build processes and pipelines</p>
+        </div>
+        <div>
+            <img src="assets/css/images/labfarmer.jpg" alt="Portfolio 2">
+            <h3>R&D test farm</h3>
+            <p>Built on-prem & in-cloud test farm cluster</p>
+        </div>
+        <div>
+            <img src="assets/css/images/medicalSoft.jpg" alt="Portfolio 3">
+            <h3>Medical software</h3>
+            <p>Software platform for doctor-patient data management</p>
+        </div>
+        <div>
+            <img src="assets/css/images/fintech.jpg" alt="Portfolio 4">
+            <h3>Fintech</h3>
+            <p>Mobile financial advisor platform startup with successful buyout</p>
+        </div>
+        <div>
+            <img src="assets/css/images/homeautomation.jpg" alt="Portfolio 5">
+            <h3>Home Automation</h3>
+            <p>IoT cross platform home security product</p>
+        </div>
+        <div>
+            <img src="assets/css/images/charity.jpg" alt="Portfolio 6">
+            <h3>Charity NFP platform</h3>
+            <p>Supporting a charity company in revamping legacy products</p>
+        </div>
+    </section>
+
+
+
+    <!-- Find Me On Section -->
+    <section id="find-me-on" class="find-me-on" style="text-align: center; padding: 40px 20px; background-color: #000000;">
+        <hr />
+        <h2>Find Me On</h2>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="https://www.linkedin.com/in/ovidiu-carp/" target="_blank" style="color: #696969;">
+                <i class="fab fa-linkedin fa-3x"></i>
+            </a>
+            <a href="https://github.com/ovidiucarp" target="_blank" style="color: #696969;">
+                <i class="fab fa-github fa-3x"></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" style="color: #696969;">
+                <i class="fab fa-youtube fa-3x"></i>
+            </a>
+            <a href="https://yourprofile.substack.com" target="_blank" style="color: #696969;">
+                <i class="fas fa-blog fa-3x"></i>
+            </a>
+            <a href="https://unsplash.com/@yetanotherguy" target="_blank" style="color: #696969;">
+                <i class="fab fa-instagram fa-3x"></i>
+            </a>
+        </div>
+        <hr />
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ovidiu Carp. All Rights Reserved.</p>
+        <p>Images from Unsplash.com</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>
